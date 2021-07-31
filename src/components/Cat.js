@@ -20,7 +20,7 @@ const Cat = (props) => {
                                         props.image ? <img src={props.image.url} alt={props.name} style={{width: '100%', height: 360 }}/> : 
                                         <img src={'https://www.esm.rochester.edu/uploads/NoPhotoAvailable.jpg'} alt={props.name} style={{width: '100%', height: 360}}/>    
                                     }
-                                    <span className="card-title grey darken-3">{props.name}</span>
+                                    <span className="card-title grey darken-1">{props.name}</span>
                                 </div>
                                 <div className="card-content">
                                     <div style={{display: 'flex', flexDirection: 'row'}}><strong>Affection:</strong>{Array(props.affection).fill().map((_, i) => (<p key={i} style={{ padding: '3px' }}>⭐️</p>))}</div>
@@ -31,8 +31,9 @@ const Cat = (props) => {
                                 </div>
                         </div>
                 </div>
-                <Modal isOpen={openModal} onRequestClose={() => setOpenModal(false)} style={{ overlay: { backgroundColor: 'darkgrey', position: 'fixed', top: 0, left: 0, right: 0, bottom: 0 } }}>
+                <Modal isOpen={openModal} onRequestClose={() => setOpenModal(false)} style={{ overlay: { backgroundColor: 'darkgrey' } }}>
                     <p>{props.description}</p>
+                    <strong onClick={() => setOpenModal(false)} style={{ cursor: 'pointer' }}>Close-Modal</strong>
                 </Modal>
         </div>       
     )
